@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/ketua', function () {
+    return view('ketua.index');
+});
+
+Route::get('/pj', function () {
+    return view('pj.index');
 });
