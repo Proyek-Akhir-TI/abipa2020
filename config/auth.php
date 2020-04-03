@@ -46,6 +46,14 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        // 'pj' => [
+        //     'driver' => 'session',
+        //     'provider' => 'pjs',
+        // ],
     ],
 
     /*
@@ -70,11 +78,18 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
+        // 'ketuas' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Ketua::class,
         // ],
+        // 'pjs' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Pj::class,
+        // ],
+        'users' => [
+            'driver' => 'database',
+            'table' => 'users',
+        ],
     ],
 
     /*
@@ -99,6 +114,18 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        // 'ketuas' => [
+        //     'provider' => 'ketuas',
+        //     'table' => 'password_reset',
+        //     'expire' => 60,
+        //     'throttle' => 60,
+        // ],
+        // 'pjs' => [
+        //     'provider' => 'pjs',
+        //     'table' => 'password_reset',
+        //     'expire' => 60,
+        //     'throttle' => 60,
+        // ],
     ],
 
     /*

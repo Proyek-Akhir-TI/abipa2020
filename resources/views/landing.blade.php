@@ -42,15 +42,23 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+        @if (Route::has('login'))
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#download">Download</a>
+          @auth
+            <a class="nav-link js-scroll-trigger" href="{{ url('/home') }}">Home</a>
+
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#features">Features</a>
+          @else 
+            <a class="nav-link js-scroll-trigger" href="{{ route('login') }}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          @if (Route::has('register'))
+            <a class="nav-link js-scroll-trigger" href="{{ route('register') }}">Register</a>
+          @endif
+          @endauth
           </li>
+        @endif
         </ul>
       </div>
     </div>
