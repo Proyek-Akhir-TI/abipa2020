@@ -36,3 +36,7 @@ Route::get('/pj', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/ketua/user/roles',['middleware'=>['role','auth','web'], function(){
+//     return"";
+// }]);

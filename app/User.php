@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','address','telp'
+        'name', 'email', 'password','address','telp','role_id'
     ];
 
     /**
@@ -36,4 +36,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role(){
+        return $this->belongsTo('App\Role');
+    }
+
+    // public function isketua(){
+    //     if($this->role->name == 'Ketua Kelompok'){
+
+    //         return true;
+
+    //     }
+
+    //     return false;    }
 }
