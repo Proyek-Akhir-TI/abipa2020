@@ -29,14 +29,27 @@ Route::get('/', function () {
 //     return view('ketua.index');
 // });
 
-Route::get('/pj', function () {
-    return view('pj.index');
-});
+// Route::get('/pj', function () {
+//     return view('pj.index');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/ketua/user/roles',['middleware'=>['role','auth','web'], function(){
 //     return"";
 // }]);
+Route::auth();
+
+Route::get('/home', function(){
+
+    $user = Auth::user();
+    if($user->isKetua()){
+        return view('ketua.index');
+    }
+    if($user->isPj()){
+        return view('pj.index');
+    }
+
+});

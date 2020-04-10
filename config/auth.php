@@ -86,10 +86,10 @@ return [
         //     'driver' => 'eloquent',
         //     'model' => App\Pj::class,
         // ],
-        'users' => [
-            'driver' => 'database',
-            'table' => 'users',
-        ],
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
     ],
 
     /*

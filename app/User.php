@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Role;
 
 class User extends Authenticatable
 {
@@ -41,12 +42,21 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
-    // public function isketua(){
-    //     if($this->role->name == 'Ketua Kelompok'){
+    public function isKetua(){
+        if($this->role->name == 'Ketua'){
 
-    //         return true;
+            return true;
 
-    //     }
+        }
 
-    //     return false;    }
+        return false;    
+        
+    }
+
+    public function isPj(){
+        if($this->role->name == 'Penanggung Jawab'){
+            return true;
+        }
+        return false;
+    }
 }
