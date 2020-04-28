@@ -21,18 +21,6 @@ Route::get('/', function () {
     return view('landing');
 });
 
-// Route::get('/login2', function () {
-//     return view('login');
-// });
-
-// Route::get('/ketua', function () {
-//     return view('ketua.index');
-// });
-
-// Route::get('/pj', function () {
-//     return view('pj.index');
-// });
-
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -53,3 +41,10 @@ Route::get('/home', function(){
     }
 
 });
+
+Route::get('/pj/tambah', function(){
+    return view('pj.tambah');
+});
+
+Route::post('/pj/store','TambahKelompokController@store');
+Route::get('/pj/index', 'TambahKelompokController@index');

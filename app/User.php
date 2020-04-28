@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Role;
+use App\Kelompok;
 
 class User extends Authenticatable
 {
@@ -59,4 +60,9 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function kelompok(){
+        return $this->belongsTo('App\Kelompok');
+    }
+
 }

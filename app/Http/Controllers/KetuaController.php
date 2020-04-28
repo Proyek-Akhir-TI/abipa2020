@@ -13,7 +13,7 @@ class KetuaController extends Controller
 
     public function index(){
 
-        return "hhhhh";
+        return view('ketua.index');
 
     }
 }
