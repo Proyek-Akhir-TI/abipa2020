@@ -49,14 +49,15 @@ Route::get('/pj/tambah', function(){
     return view('pj.tambah');
 });
 
-Route::post('/pj/store','TambahKelompokController@store');
-Route::get('/pj/index', 'TambahKelompokController@index');
+
 
 // Route::get('auth/register', 'Auth\RegisterController@index')
 //     ->name('auth.register');
 
-
+//tambah kelompok
+Route::post('/pj/store','TambahKelompokController@store');
+Route::get('/pj/index', 'TambahKelompokController@index');
+//tambah ketua
 Route::post('/pj/storeket', 'TambahKetuaController@store')
     ->name('pj.storeket');
-
 Route::get('/pj/indexket', 'TambahKetuaController@index');
