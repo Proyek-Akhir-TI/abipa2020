@@ -4,9 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\User;
+use App\Role;
+use App\Kelompok;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
-class TambahKelompokController extends Controller
+class TambahKetuaController extends Controller
 {
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:3', 'confirmed'],
+            // 'address' => ['required', 'text', 'max:255'],
+            // 'telp' => ['required', 'string', 'max:12'],
+        ]); 
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +35,13 @@ class TambahKelompokController extends Controller
      */
     public function index()
     {
-        //
-        return view('pj.index');
+        $roles = Role::pluck('name','id');
+        $kelompoks = Kelompok::pluck('name','id');
+
+        return view('pj.tambahket', [
+            'roles' => $roles, 
+            'kelompoks' => $kelompoks
+        ]);
     }
 
     /**
@@ -37,12 +63,17 @@ class TambahKelompokController extends Controller
     public function store(Request $request)
     {
         // insert data ke table pegawai
-	    DB::table('kelompoks')->insert([
+	    DB::table('users')->insert([
             'name' => $request->name,
-            'address' => $request->address,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role_id' => $request->role_id,
+            'kelompok_id' => $request->kelompok_id,
+            'address' =>$request->address,
+            'telp' => $request->telp,
 	    ]);
 	    // alihkan halaman ke halaman pegawai
-	    return redirect('/pj/indexket');
+	    return redirect('/pj/index');
     }
 
     /**

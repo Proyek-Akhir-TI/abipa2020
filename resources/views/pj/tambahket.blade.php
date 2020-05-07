@@ -63,7 +63,7 @@
                 <small>Or sign up with credentials</small>
               </div>
 
-            <form role="form" action="{{ route('register') }}" method="post">
+            <form role="form" action="/pj/storeket" method="post">
               {{ csrf_field() }}
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">

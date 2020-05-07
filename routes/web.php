@@ -39,6 +39,9 @@ Route::get('/home', function(){
     if($user->isPj()){
         return view('pj.index');
     }
+    if($user->isPeternak()){
+        return view('pj.index');
+    }
 
 });
 
@@ -48,3 +51,12 @@ Route::get('/pj/tambah', function(){
 
 Route::post('/pj/store','TambahKelompokController@store');
 Route::get('/pj/index', 'TambahKelompokController@index');
+
+// Route::get('auth/register', 'Auth\RegisterController@index')
+//     ->name('auth.register');
+
+
+Route::post('/pj/storeket', 'TambahKetuaController@store')
+    ->name('pj.storeket');
+
+Route::get('/pj/indexket', 'TambahKetuaController@index');

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Role;
+use App\Kelompok;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -56,9 +57,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:3', 'confirmed'],
             // 'address' => ['required', 'text', 'max:255'],
             // 'telp' => ['required', 'string', 'max:12'],
-        ]);
-
-        
+        ]); 
     }
 
     /**
@@ -70,15 +69,25 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-        // $create = [
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role_id' => $data['role_id'],
+            'kelompok_id' => $data['kelompok_id'],
             'address' => $data['address'],
             'telp' => $data['telp'],
         ]);
-
-        //  '<pre>'.$create.'</pre>';
     }
+    
+    public function index(){
+
+        $roles = Role::pluck('name','id');
+        $kelompoks = Kelompok::pluck('name','id');
+
+        return view('auth.register', [
+            'roles' => $roles, 
+            'kelompoks' => $kelompoks
+        ]);
+    }
+
 }

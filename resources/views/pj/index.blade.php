@@ -62,6 +62,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{{ url('/register') }}">
+                <i class="ni ni-circle-08 text-pink"></i>
+                <span class="nav-link-text">Add Leader</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="examples/upgrade.html">
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">Upgrade</span>

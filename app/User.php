@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','address','telp','role_id'
+        'name', 'email', 'password','address','telp','role_id','kelompok_id'
     ];
 
     /**
@@ -43,6 +43,10 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
+    public function kelompok(){
+        return $this->belongsTo('App\Kelompok');
+    }
+
     public function isKetua(){
         if($this->role->name == 'Ketua'){
 
@@ -61,8 +65,13 @@ class User extends Authenticatable
         return false;
     }
 
-    public function kelompok(){
-        return $this->belongsTo('App\Kelompok');
+    public function isPeternak(){
+        if($this->role->name == 'Peternak'){
+            return true;
+        }
+        return false;
     }
+
+    
 
 }

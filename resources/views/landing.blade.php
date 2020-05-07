@@ -45,17 +45,17 @@
         @if (Route::has('login'))
           <li class="nav-item">
           @auth
-            <a class="nav-link js-scroll-trigger" href="{{ url('/home') }}">Home</a>
+            <!-- <a class="nav-link js-scroll-trigger" href="{{ url('/home') }}">Home</a>
 
           </li>
           <li class="nav-item">
-          @else 
+          @else  -->
             <a class="nav-link js-scroll-trigger" href="{{ route('login') }}">Login</a>
           </li>
           <li class="nav-item">
-          @if (Route::has('register'))
+          <!-- @if (Route::has('register'))
             <a class="nav-link js-scroll-trigger" href="{{ route('register') }}">Register</a>
-          @endif
+          @endif -->
           @endauth
           </li>
         @endif
